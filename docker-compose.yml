@@ -1,22 +1,22 @@
 version: '3.1'
 
 services:
-  finance_db:
+  pizza_db:
     image: postgres:11.6
-    container_name: finance_db
+    container_name: pizza_db
     restart: always
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_DB: finance
+      POSTGRES_DB: pizza
       POSTGRES_USER: root
       POSTGRES_PASSWORD: root
     volumes:
       - ./data/postgresql:/var/lib/postgresql/data
 
-  finance_api:
+  pizza_api:
     image: node:16
-    container_name: finance_api
+    container_name: pizza_api
     working_dir: /home/node/app
     environment:
       - NODE_ENV=development
